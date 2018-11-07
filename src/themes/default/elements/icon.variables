@@ -87,8 +87,8 @@
 @mini: 0.4em;
 @tiny: 0.5em;
 @small: 0.75em;
-@medium: 1em;
-@large: 1.5em;
-@big: 2em;
-@huge: 4em;
-@massive: 8em;
+@medium: .9em;
+@large: 1.25em;
+@big: 1.75em;
+@huge: 3.5em;
+@massive: 7em;

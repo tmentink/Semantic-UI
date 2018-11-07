@@ -15,7 +15,7 @@
 @lineHeight: 1em;
 
 /* Button defaults to using same height as input globally */
-@verticalPadding: @inputVerticalPadding;
+@verticalPadding: .75rem;
 @horizontalPadding: 1.5em;
 
 /* Text */
@@ -49,7 +49,7 @@
 @iconDistance: @relative6px;
 @iconColor: '';
 @iconTransition: opacity @defaultDuration @defaultEasing;
-@iconVerticalAlign: '';
+@iconVerticalAlign: baseline;
 
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
 @rightIconMargin: 0em -(@iconDistance / 2) 0em @iconDistance;
