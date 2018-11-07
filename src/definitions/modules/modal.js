@@ -164,7 +164,7 @@ $.fn.modal = function(parameters) {
         },
 
         refresh: function() {
-          module.remove.scrolling();
+          //module.remove.scrolling();
           module.cacheSizes();
           if(!module.can.useFlex()) {
             module.set.modalOffset();
@@ -212,13 +212,13 @@ $.fn.modal = function(parameters) {
           },
           scrollLock: function() {
             // touch events default to passive, due to changes in chrome to optimize mobile perf
-            $dimmable.get(0).addEventListener('touchmove', module.event.preventScroll, { passive: false });
+            //$dimmable.get(0).addEventListener('touchmove', module.event.preventScroll, { passive: false });
           }
         },
 
         unbind: {
           scrollLock: function() {
-            $dimmable.get(0).removeEventListener('touchmove', module.event.preventScroll, { passive: false });
+            //$dimmable.get(0).removeEventListener('touchmove', module.event.preventScroll, { passive: false });
           }
         },
 
@@ -427,7 +427,7 @@ $.fn.modal = function(parameters) {
                   onComplete : function() {
                     settings.onHidden.call(element);
                     module.remove.dimmerStyles();
-                    module.restore.focus();
+                    //module.restore.focus();
                     callback();
                   }
                 })
@@ -443,6 +443,7 @@ $.fn.modal = function(parameters) {
           if($dimmable.dimmer('is animating') || !$dimmable.dimmer('is active') ) {
             module.debug('Showing dimmer');
             $dimmable.dimmer('show');
+            $dimmer.scrollTop(0);
           }
           else {
             module.debug('Dimmer already visible');
