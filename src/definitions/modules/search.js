@@ -299,6 +299,7 @@ $.fn.search = function(parameters) {
                   .closest($category)
                     .addClass(className.active)
               ;
+              module.showActiveResult();
               event.preventDefault();
             }
             else if(keyCode == keys.downArrow) {
@@ -317,6 +318,7 @@ $.fn.search = function(parameters) {
                   .closest($category)
                     .addClass(className.active)
               ;
+              module.showActiveResult();
               event.preventDefault();
             }
           }
@@ -490,6 +492,15 @@ $.fn.search = function(parameters) {
           },
           buttonPressed: function() {
             $searchButton.addClass(className.pressed);
+          },
+          maxHeight: function(value) {
+            if(value) {
+              settings.maxHeight = value;
+            }
+            module.verbose('Setting results max height', settings.maxHeight);
+            $results.css({
+              "maxHeight": settings.maxHeight || ""
+            });
           }
         },
 
@@ -917,6 +928,7 @@ $.fn.search = function(parameters) {
               module.select.firstResult();
             }
             module.showResults();
+            $results.scrollTop(0);
           }
           else {
             module.hideResults(function() {
@@ -933,6 +945,8 @@ $.fn.search = function(parameters) {
           if(resultsDismissed) {
             return;
           }
+          module.set.maxHeight();
+
           if(!module.is.visible() && module.has.results()) {
             if( module.can.transition() ) {
               module.debug('Showing results with css animations');
@@ -1029,6 +1043,22 @@ $.fn.search = function(parameters) {
           module.debug('Displaying message', text, type);
           module.addResults( settings.templates.message(text, type) );
           return settings.templates.message(text, type);
+        },
+
+        showActiveResult: function() {
+          var
+            $result        = $module.find(selector.result),
+            $results       = $module.find(selector.results),
+            $activeResult  = $result.filter('.' + className.active),
+            resultsHeight  = $results.outerHeight(),
+            scrollPosition = $results.scrollTop(),
+            activePosition = $activeResult.position().top,
+            activeHeight   = $activeResult.outerHeight()
+          ;
+
+          if(activePosition < 0 || activePosition + activeHeight >= resultsHeight) {
+            $results.scrollTop(scrollPosition + activePosition);
+          }
         },
 
         setting: function(name, value) {
@@ -1259,6 +1289,9 @@ $.fn.search.settings = {
 
   // delay before searching
   searchDelay    : 200,
+
+  // the max height of the results
+  maxHeight      : '',
 
   // maximum results returned from search
   maxResults     : 7,
