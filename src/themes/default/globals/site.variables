@@ -13,7 +13,7 @@
 @pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 @googleFontName    : @fontName;
-@importGoogleFonts : true;
+@importGoogleFonts : false;
 @googleFontSizes   : '400,700,400italic,700italic';
 @googleSubset      : 'latin';
 
@@ -29,10 +29,10 @@
 --------------------*/
 
 /* This is the single variable that controls them all */
-@emSize   : 14px;
+@emSize   : 16px;
 
 /* The size of page text  */
-@fontSize : 14px;
+@fontSize : 16px;
 
 
 /*-------------------
@@ -52,10 +52,10 @@
 --------------------*/
 
 @primaryColor        : @blue;
-@secondaryColor      : @black;
+@secondaryColor      : @grey;
 
 @lightPrimaryColor   : @lightBlue;
-@lightSecondaryColor : @lightBlack;
+@lightSecondaryColor : @lightGrey;
 
 /*--------------
   Page Heading
@@ -121,11 +121,11 @@
         Page
 --------------------*/
 
-@pageBackground      : #FFFFFF;
+@pageBackground      : #F9F9F9;
 @pageOverflowX       : hidden;
 
 @lineHeight          : 1.4285em;
-@textColor           : rgba(0, 0, 0, 0.87);
+@textColor           : #212121;
 
 /*-------------------
       Paragraph
@@ -138,9 +138,9 @@
        Links
 --------------------*/
 
-@linkColor           : #4183C4;
+@linkColor           : @blue;
 @linkUnderline       : none;
-@linkHoverColor      : darken(saturate(@linkColor, 20), 15, relative);
+@linkHoverColor      : lighten(@linkColor, 5);
 @linkHoverUnderline  : @linkUnderline;
 
 /*-------------------
@@ -149,13 +149,13 @@
 
 @useCustomScrollbars: true;
 
-@customScrollbarWidth: 10px;
+@customScrollbarWidth: 8px;
 @customScrollbarHeight: 10px;
 
 @trackBackground: rgba(0, 0, 0, 0.1);
-@trackBorderRadius: 0px;
+@trackBorderRadius: 4px;
 
-@thumbBorderRadius: 5px;
+@thumbBorderRadius: 4px;
 @thumbBackground: rgba(0, 0, 0, 0.25);
 @thumbTransition: color 0.2s ease;
 
@@ -220,39 +220,40 @@
 --------------------*/
 
 /*---  Colors  ---*/
-@red              : #DB2828;
-@orange           : #F2711C;
-@yellow           : #FBBD08;
-@olive            : #B5CC18;
-@green            : #21BA45;
-@teal             : #00B5AD;
-@blue             : #2185D0;
-@violet           : #6435C9;
-@purple           : #A333C8;
-@pink             : #E03997;
+@red              : #F44336;
+@orange           : #FF9800;
+@yellow           : #FFEB3B;
+@olive            : #8BC34A;
+@green            : #4CAF50;
+@teal             : #009688;
+@blue             : #2196F3;
+@violet           : #673AB7;
+@purple           : #9C27B0;
+@pink             : #E91E63;
 @brown            : #A5673F;
-@grey             : #767676;
+@grey             : #9E9E9E;
 @black            : #1B1C1D;
 
 /*---  Light Colors  ---*/
-@lightRed         : #FF695E;
-@lightOrange      : #FF851B;
-@lightYellow      : #FFE21F;
-@lightOlive       : #D9E778;
-@lightGreen       : #2ECC40;
-@lightTeal        : #6DFFFF;
-@lightBlue        : #54C8FF;
-@lightViolet      : #A291FB;
-@lightPurple      : #DC73FF;
-@lightPink        : #FF8EDF;
+@lightRed         : #FF1744;
+@lightOrange      : #FF9100;
+@lightYellow      : #FFEA00;
+@lightOlive       : #76FF03;
+@lightGreen       : #00E676;
+@lightTeal        : #1DE9B6;
+@lightBlue        : #2979FF;
+@lightViolet      : #651FFF;
+@lightPurple      : #D500F9;
+@lightPink        : #F50057;
 @lightBrown       : #D67C1C;
 @lightGrey        : #DCDDDE;
-@lightBlack       : #545454;
+@lightBlack       : #333333;
 
 /*---   Neutrals  ---*/
 @fullBlack        : #000000;
-@offWhite         : #F9FAFB;
-@darkWhite        : #F3F4F5;
+@darkGrey         : #AAAAAA;
+@offWhite         : #FAFAFA;
+@darkWhite        : #F0F0F0;
 @midWhite         : #DCDDDE;
 @white            : #FFFFFF;
 
@@ -720,7 +721,7 @@
       Disabled
 --------------------*/
 
-@disabledOpacity: 0.45;
+@disabledOpacity: 0.5;
 @disabledTextColor: rgba(40, 40, 40, 0.3);
 @invertedDisabledTextColor: rgba(225, 225, 225, 0.3);
 
