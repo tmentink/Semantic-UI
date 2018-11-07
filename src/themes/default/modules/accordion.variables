@@ -65,7 +65,7 @@
 
 /* Content */
 @styledContentMargin: 0em;
-@styledContentPadding: 0.5em 1em 1.5em;
+@styledContentPadding: 1em;
 
 /* Child Content */
 @styledChildContentMargin: 0em;
