@@ -1047,17 +1047,22 @@ $.fn.search = function(parameters) {
 
         showActiveResult: function() {
           var
-            $result        = $module.find(selector.result),
-            $results       = $module.find(selector.results),
-            $activeResult  = $result.filter('.' + className.active),
-            resultsHeight  = $results.outerHeight(),
-            scrollPosition = $results.scrollTop(),
-            activePosition = $activeResult.position().top,
-            activeHeight   = $activeResult.outerHeight()
+            $result       = $module.find(selector.result),
+            $results      = $module.find(selector.results),
+            $activeResult = $result.filter('.' + className.active)
           ;
 
-          if(activePosition < 0 || activePosition + activeHeight >= resultsHeight) {
-            $results.scrollTop(scrollPosition + activePosition);
+          if($activeResult.length > 0) {
+            var
+              activeHeight   = $activeResult.outerHeight(),
+              activePosition = $activeResult.position().top,
+              resultsHeight  = $results.outerHeight(),
+              scrollPosition = $results.scrollTop()
+            ;
+
+            if(activePosition < 0 || activePosition + activeHeight >= resultsHeight) {
+              $results.scrollTop(scrollPosition + activePosition);
+            }
           }
         },
 
